@@ -1,1 +1,28 @@
-<p>home works!</p>
+<!-- <div class="bg-light p-5">
+    <h4 class="mx-3 my-3">Nhập tên: </h4>
+    <form class="row g-3 mx-auto" [formGroup]="userForm" (ngSubmit)="submitform()" autocomplete="off">
+        <div class="col-10">
+          <label for="inputPassword2" class="visually-hidden">Name</label>
+          <input type="text" formControlName="name" class="form-control" >
+        </div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary mb-3">Confirm</button>
+        </div>
+      </form>
+</div> -->
+<ng-container *ngIf="openChat===false">
+  <div class="bg-light p-5">
+      <h4 class="mx-3 my-3">Nhập tên: </h4>
+      <div class="row g-3 mx-auto">
+          <div class="col-10">
+            <label for="inputPassword2" class="visually-hidden">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name">
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-primary mb-3" (click)="submitform()">Confirm</button>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+<app-chat *ngIf="openChat===true" (closeChatEmitter)="closeChat()"></app-chat>
